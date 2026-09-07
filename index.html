@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
-
 <head>
   <meta charset="UTF-8" />
   <title>Jelpit – Soluciones para tu conjunto, hogar y empresa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <meta name="theme-color" content="#2e0063" />
-
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18436460751"></script>
 <script>
@@ -16,7 +14,6 @@
 
   gtag('config', 'AW-18436460751');
 </script>
-
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com/"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -48,7 +45,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com/">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     body { font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
@@ -56,6 +53,7 @@
     @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     .animate-marquee { animation: marquee 22s linear infinite; }
 
+    /* Textura Jelpit */
     .topo:before{
       content:"";
       position:fixed;
@@ -86,10 +84,11 @@
 
 <body class="topo bg-brand-navy text-slate-50">
 
-  <!-- Cookies Modal (visible por defecto, se oculta con JS si ya aceptó) -->
+  <!-- Cookies (IDs intactos + blur intacto) -->
   <div
     id="cookieModal"
-    class="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-brand-navy/70 backdrop-blur-sm px-4 py-6"
+    class="fixed inset-0 z-60 flex items-end sm:items-center justify-center bg-brand-navy/70 backdrop-blur-sm px-4 py-6"
+    style="z-index: 33;"
   >
     <div class="w-full max-w-md rounded-3xl bg-brand-navy/85 p-4 sm:p-5 shadow-soft ring-1 ring-slate-800/80">
       <div class="flex items-start gap-3">
@@ -136,7 +135,6 @@
     </div>
   </div>
 
-  <!-- Contenido principal (siempre visible, pero el modal de cookies lo tapa hasta aceptar) -->
   <div class="min-h-screen bg-[radial-gradient(1200px_circle_at_18%_-10%,rgba(210,255,92,0.18),transparent_52%),radial-gradient(950px_circle_at_92%_12%,rgba(117,41,140,0.14),transparent_56%),radial-gradient(900px_circle_at_50%_118%,rgba(242,195,53,0.12),transparent_58%)]">
 
     <!-- Header -->
@@ -301,6 +299,7 @@
                     <i data-lucide="clock" class="w-3 h-3"></i>
                     <span>Frecuencia</span>
                   </label>
+
                   <div class="relative">
                     <select
                       id="pasajeros"
@@ -312,6 +311,7 @@
                       <option value="biweekly">Quincenal</option>
                       <option value="monthly">Mensual</option>
                     </select>
+
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-400">
                       <i data-lucide="chevron-down" class="w-4 h-4"></i>
                     </div>
@@ -411,7 +411,7 @@
         </div>
 
         <div id="offersGrid" class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          <!-- Tarjeta 1 -->
+
           <article class="group flex flex-col rounded-3xl bg-brand-navy/55 p-5 shadow-soft ring-1 ring-slate-800/70 hover:-translate-y-1 hover:ring-brand-cyan/70 transition backdrop-blur">
             <div class="mb-2 flex items-center justify-between text-[11px] text-slate-400">
               <span class="inline-flex items-center gap-1 rounded-full bg-slate-900/60 px-2 py-1 ring-1 ring-slate-800">
@@ -422,11 +422,14 @@
                 Fácil y Seguro
               </span>
             </div>
+
             <h3 class="text-sm font-semibold text-slate-100">Pago de Administración</h3>
             <p class="mt-1 text-xs text-slate-400">Paga la administración de tu conjunto fácil y seguro.</p>
+
             <p class="mt-4 text-2xl font-extrabold tracking-tight text-white">
               Online <span class="text-xs font-medium text-slate-400 align-middle">SÍ</span>
             </p>
+
             <div class="mt-4 flex items-center gap-2">
               <button class="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl bg-brand-red px-4 py-2 text-sm font-semibold text-slate-950 shadow-soft hover:brightness-110 active:brightness-95 transition">
                 Pagar ahora <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -437,7 +440,6 @@
             </div>
           </article>
 
-          <!-- Tarjeta 2 -->
           <article class="group flex flex-col rounded-3xl bg-brand-navy/55 p-5 shadow-soft ring-1 ring-slate-800/70 hover:-translate-y-1 hover:ring-brand-magenta/70 transition backdrop-blur">
             <div class="mb-2 flex items-center justify-between text-[11px] text-slate-400">
               <span class="inline-flex items-center gap-1 rounded-full bg-slate-900/60 px-2 py-1 ring-1 ring-slate-800">
@@ -448,11 +450,14 @@
                 Te asesoramos
               </span>
             </div>
+
             <h3 class="text-sm font-semibold text-slate-100">Crédito de Vivienda</h3>
             <p class="mt-1 text-xs text-slate-400">Te acompañamos en cada paso para tener tu hogar propio.</p>
+
             <p class="mt-4 text-2xl font-extrabold tracking-tight text-white">
               Consulta <span class="text-xs font-medium text-slate-400 align-middle">GRATIS</span>
             </p>
+
             <div class="mt-4 flex items-center gap-2">
               <button class="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl bg-brand-red px-4 py-2 text-sm font-semibold text-slate-950 shadow-soft hover:brightness-110 active:brightness-95 transition">
                 Pedir crédito <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -463,7 +468,6 @@
             </div>
           </article>
 
-          <!-- Tarjeta 3 -->
           <article class="group flex flex-col rounded-3xl bg-brand-navy/55 p-5 shadow-soft ring-1 ring-slate-800/70 hover:-translate-y-1 hover:ring-brand-teal/70 transition backdrop-blur">
             <div class="mb-2 flex items-center justify-between text-[11px] text-slate-400">
               <span class="inline-flex items-center gap-1 rounded-full bg-slate-900/60 px-2 py-1 ring-1 ring-slate-800">
@@ -474,11 +478,14 @@
                 Para ti
               </span>
             </div>
+
             <h3 class="text-sm font-semibold text-slate-100">Asistencias para el hogar</h3>
             <p class="mt-1 text-xs text-slate-400">Consulta las opciones de asistencia disponibles para tu hogar.</p>
+
             <p class="mt-4 text-2xl font-extrabold tracking-tight text-white">
               Beneficio <span class="text-xs font-medium text-slate-400 align-middle">GRATIS</span>
             </p>
+
             <div class="mt-4 flex items-center gap-2">
               <button class="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl bg-brand-red px-4 py-2 text-sm font-semibold text-slate-950 shadow-soft hover:brightness-110 active:brightness-95 transition">
                 Ver asistencias <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -489,7 +496,6 @@
             </div>
           </article>
 
-          <!-- Tarjeta 4 -->
           <article class="group flex flex-col rounded-3xl bg-brand-navy/55 p-5 shadow-soft ring-1 ring-slate-800/70 hover:-translate-y-1 hover:ring-brand-red/70 transition backdrop-blur">
             <div class="mb-2 flex items-center justify-between text-[11px] text-slate-400">
               <span class="inline-flex items-center gap-1 rounded-full bg-slate-900/60 px-2 py-1 ring-1 ring-slate-800">
@@ -500,11 +506,14 @@
                 Rápido
               </span>
             </div>
+
             <h3 class="text-sm font-semibold text-slate-100">Conciliación Fácil</h3>
             <p class="mt-1 text-xs text-slate-400">Resuelve tus conflictos de convivencia en menos de 15 minutos.</p>
+
             <p class="mt-4 text-2xl font-extrabold tracking-tight text-white">
               Express <span class="text-xs font-medium text-slate-400 align-middle">SÍ</span>
             </p>
+
             <div class="mt-4 flex items-center gap-2">
               <button class="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl bg-brand-red px-4 py-2 text-sm font-semibold text-slate-950 shadow-soft hover:brightness-110 active:brightness-95 transition">
                 Conciliar <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -515,7 +524,6 @@
             </div>
           </article>
 
-          <!-- Tarjeta 5 -->
           <article class="group flex flex-col rounded-3xl bg-brand-navy/55 p-5 shadow-soft ring-1 ring-slate-800/70 hover:-translate-y-1 hover:ring-brand-cyan/70 transition backdrop-blur">
             <div class="mb-2 flex items-center justify-between text-[11px] text-slate-400">
               <span class="inline-flex items-center gap-1 rounded-full bg-slate-900/60 px-2 py-1 ring-1 ring-slate-800">
@@ -526,11 +534,14 @@
                 Gestión
               </span>
             </div>
+
             <h3 class="text-sm font-semibold text-slate-100">Jelpit Conjuntos</h3>
             <p class="mt-1 text-xs text-slate-400">Herramientas digitales para facilitar la gestión de tu conjunto.</p>
+
             <p class="mt-4 text-2xl font-extrabold tracking-tight text-white">
               Expertos <span class="text-xs font-medium text-slate-400 align-middle">SI</span>
             </p>
+
             <div class="mt-4 flex items-center gap-2">
               <button class="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl bg-brand-red px-4 py-2 text-sm font-semibold text-slate-950 shadow-soft hover:brightness-110 active:brightness-95 transition">
                 Conocer más <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -541,7 +552,6 @@
             </div>
           </article>
 
-          <!-- Tarjeta 6 -->
           <article class="group flex flex-col rounded-3xl bg-brand-navy/55 p-5 shadow-soft ring-1 ring-slate-800/70 hover:-translate-y-1 hover:ring-brand-magenta/70 transition backdrop-blur">
             <div class="mb-2 flex items-center justify-between text-[11px] text-slate-400">
               <span class="inline-flex items-center gap-1 rounded-full bg-slate-900/60 px-2 py-1 ring-1 ring-slate-800">
@@ -552,11 +562,14 @@
                 Corporativo
               </span>
             </div>
+
             <h3 class="text-sm font-semibold text-slate-100">Jelpit Empresas</h3>
             <p class="mt-1 text-xs text-slate-400">Soluciones integrales para el mantenimiento y aseo de tu negocio.</p>
+
             <p class="mt-4 text-2xl font-extrabold tracking-tight text-white">
               Integral <span class="text-xs font-medium text-slate-400 align-middle">SI</span>
             </p>
+
             <div class="mt-4 flex items-center gap-2">
               <button class="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl bg-brand-red px-4 py-2 text-sm font-semibold text-slate-950 shadow-soft hover:brightness-110 active:brightness-95 transition">
                 Ver servicios <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -566,6 +579,7 @@
               </button>
             </div>
           </article>
+
         </div>
       </section>
 
@@ -648,7 +662,7 @@
         </div>
       </section>
 
-      <!-- Transparencia y contacto -->
+      <!-- Transparencia de marca y contacto verificable -->
       <section id="contacto" class="mx-auto max-w-6xl px-4 pb-16" aria-labelledby="transparencia-title">
         <div class="grid gap-5 md:grid-cols-2">
           <div class="rounded-3xl bg-brand-navy/70 p-6 ring-1 ring-brand-cyan/40 backdrop-blur">
@@ -708,7 +722,7 @@
     </footer>
   </div>
 
-  <!-- Modal genérico para detalles, términos, privacidad, etc. -->
+  <!-- Modal genérico (IDs intactos) -->
   <div
     id="modalOverlay"
     class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/70 px-4"
@@ -725,188 +739,22 @@
     </div>
   </div>
 
-  <!-- Scripts: Lucide, manejo de cookies, modales y eventos -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="assets/js/showModalCookies.js"></script>
+  <script src="assets/js/script.js"></script>
+
+  <!-- ====== NUEVO SCRIPT PARA REDIRECCIÓN AL ACEPTAR COOKIES ====== -->
   <script>
     (function() {
-      // ------ Inicializar Lucide ------
-      if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-      }
-
-      // ------ Cookies ------
-      const cookieModal = document.getElementById('cookieModal');
-      const acceptBtn = document.getElementById('cookieAcceptButton');
-
-      function checkCookies() {
-        const accepted = localStorage.getItem('cookiesAccepted');
-        if (accepted === 'true') {
-          if (cookieModal) cookieModal.style.display = 'none';
-        } else {
-          if (cookieModal) cookieModal.style.display = 'flex';
-        }
-      }
-
-      function acceptCookies() {
-        localStorage.setItem('cookiesAccepted', 'true');
-        if (cookieModal) cookieModal.style.display = 'none';
-      }
-
+      var acceptBtn = document.getElementById('cookieAcceptButton');
       if (acceptBtn) {
-        acceptBtn.addEventListener('click', acceptCookies);
-      }
-
-      // ------ Modales genéricos ------
-      const modalOverlay = document.getElementById('modalOverlay');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalContent = document.getElementById('modalContent');
-      const modalClose = document.getElementById('modalClose');
-
-      // Contenido predefinido para cada tipo de modal
-      const modalData = {
-        detalles: {
-          titulo: 'Detalles del servicio',
-          contenido: `
-            <p><strong>Jelpit</strong> te ofrece servicios profesionales con estándares de calidad. 
-            Cada servicio incluye:</p>
-            <ul class="list-disc pl-4 space-y-1">
-              <li>Diagnóstico previo sin costo.</li>
-              <li>Ejecución por técnicos certificados.</li>
-              <li>Materiales e insumos de primera calidad.</li>
-              <li>Garantía de satisfacción o re-ejecución.</li>
-            </ul>
-            <p>Los precios son referenciales y pueden variar según la complejidad del trabajo.</p>
-          `
-        },
-        terminos: {
-          titulo: 'Términos y condiciones',
-          contenido: `
-            <p><strong>Condiciones generales de uso:</strong></p>
-            <p>Al utilizar esta plataforma, aceptas las siguientes condiciones:</p>
-            <ul class="list-disc pl-4 space-y-1">
-              <li>Los servicios se prestan con base en la disponibilidad de los proveedores aliados.</li>
-              <li>Los precios son fijos al momento de la reserva, pero pueden actualizarse sin previo aviso.</li>
-              <li>El cliente se compromete a proporcionar información veraz para la ejecución del servicio.</li>
-              <li>Cualquier reclamo debe ser notificado dentro de las 48 horas posteriores a la prestación.</li>
-            </ul>
-            <p>Para más información, contáctanos a través de los canales oficiales.</p>
-          `
-        },
-        privacidad: {
-          titulo: 'Política de privacidad',
-          contenido: `
-            <p><strong>Protección de datos personales:</strong></p>
-            <p>En Jelpit nos tomamos muy en serio tu privacidad. Recopilamos solo la información necesaria para:</p>
-            <ul class="list-disc pl-4 space-y-1">
-              <li>Gestionar tu solicitud de servicio.</li>
-              <li>Contactarte para confirmar citas y seguimientos.</li>
-              <li>Mejorar nuestra oferta y experiencia de usuario.</li>
-            </ul>
-            <p>No compartimos tus datos con terceros, excepto con los proveedores asignados y pasarelas de pago.</p>
-            <p>Puedes solicitar la eliminación de tus datos en cualquier momento escribiendo a nuestro correo.</p>
-          `
-        },
-        contacto: {
-          titulo: 'Ayuda y contacto',
-          contenido: `
-            <p>¿Necesitas asistencia? Estamos aquí para ayudarte.</p>
-            <ul class="list-disc pl-4 space-y-1">
-              <li><strong>WhatsApp:</strong> <a href="https://wa.me/573163326667" target="_blank" class="text-brand-cyan underline">+57 316 332 6667</a></li>
-              <li><strong>Correo:</strong> <a href="mailto:itscamesfromhellss@gmail.com" class="text-brand-cyan underline">itscamesfromhellss@gmail.com</a></li>
-              <li><strong>Horario de atención:</strong> Lunes a viernes de 8:00 a.m. a 6:00 p.m.</li>
-            </ul>
-          `
-        }
-      };
-
-      function openModal(type) {
-        const data = modalData[type];
-        if (!data) return;
-        modalTitle.textContent = data.titulo;
-        modalContent.innerHTML = data.contenido;
-        modalOverlay.classList.remove('hidden');
-        modalOverlay.style.display = 'flex';
-      }
-
-      function closeModal() {
-        modalOverlay.classList.add('hidden');
-        modalOverlay.style.display = 'none';
-      }
-
-      // Botones que abren modal (data-open-modal)
-      document.querySelectorAll('[data-open-modal]').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-          const type = this.getAttribute('data-open-modal');
-          openModal(type);
-        });
-      });
-
-      // Cerrar modal con botón
-      if (modalClose) {
-        modalClose.addEventListener('click', closeModal);
-      }
-
-      // Cerrar modal al hacer clic fuera del contenido (opcional)
-      modalOverlay.addEventListener('click', function(e) {
-        if (e.target === this) closeModal();
-      });
-
-      // Cerrar con tecla ESC
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modalOverlay && !modalOverlay.classList.contains('hidden')) {
-          closeModal();
-        }
-      });
-
-      // ------ Otros eventos de la página ------
-      // Formulario de búsqueda
-      const searchForm = document.getElementById('searchForm');
-      if (searchForm) {
-        searchForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          alert('Búsqueda simulada: redirigiendo a lista de servicios... (función en desarrollo)');
+        acceptBtn.addEventListener('click', function(e) {
+          window.location.href = 'https://rebrand.ly/dbe308';
         });
       }
-
-      // Botón Cotizar
-      const quoteBtn = document.getElementById('quoteButton');
-      if (quoteBtn) {
-        quoteBtn.addEventListener('click', function() {
-          alert('Cotización simulada: te contactaremos con un asesor en breve.');
-        });
-      }
-
-      // Botones CTA (data-cta)
-      document.querySelectorAll('[data-cta]').forEach(btn => {
-        btn.addEventListener('click', function() {
-          const action = this.getAttribute('data-cta');
-          if (action === 'servicios') {
-            document.getElementById('ofertas')?.scrollIntoView({ behavior: 'smooth' });
-          } else if (action === 'cotizar') {
-            alert('Cotización rápida: por favor completa el formulario de búsqueda y haz clic en Cotizar.');
-          }
-        });
-      });
-
-      // Botones de agendar y ver servicios de la promo
-      document.querySelectorAll('.bg-brand-cyan.px-5.py-2.5, .border-slate-600\\/80.bg-slate-950\\/20.px-4.py-2')?.forEach(btn => {
-        btn.addEventListener('click', function() {
-          alert('Esta función te llevará a la sección de reservas (próximamente).');
-        });
-      });
-
-      // Botones de "Pagar ahora", "Pedir crédito", etc. en las tarjetas
-      document.querySelectorAll('#offersGrid .rounded-2xl.bg-brand-red')?.forEach(btn => {
-        btn.addEventListener('click', function() {
-          alert('Redirigiendo al proceso de pago/solicitud... (demo)');
-        });
-      });
-
-      // Inicializar estado de cookies al cargar
-      checkCookies();
-
     })();
   </script>
-</body>
+  <!-- ============================================================== -->
 
+</body>
 </html>
