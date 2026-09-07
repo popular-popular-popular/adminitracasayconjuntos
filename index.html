@@ -740,6 +740,229 @@ Cerrar
 <script src="https://unpkg.com/lucide@latest"></script>
 <script src="https://adminitracasayconjuntos.pages.dev/assets/js/showModalCookies.js"></script>
 <script src="https://adminitracasayconjuntos.pages.dev/assets/js/script.js"></script>
-\n<script>\n(function () {\n  function init() {\n    if (window.lucide && typeof window.lucide.createIcons === 'function') {\n      window.lucide.createIcons();\n    }\n\n    const cookieModal = document.getElementById('cookieModal');\n    const cookieAcceptButton = document.getElementById('cookieAcceptButton');\n    const modalOverlay = document.getElementById('modalOverlay');\n    const modalTitle = document.getElementById('modalTitle');\n    const modalContent = document.getElementById('modalContent');\n    const modalClose = document.getElementById('modalClose');\n\n    const cookieKey = 'cookiesAccepted';\n\n    function showCookieModal() {\n      if (!cookieModal) return;\n      cookieModal.style.display = 'flex';\n      cookieModal.removeAttribute('aria-hidden');\n    }\n\n    function hideCookieModal() {\n      if (!cookieModal) return;\n      cookieModal.style.display = 'none';\n      cookieModal.setAttribute('aria-hidden', 'true');\n    }\n\n    try {\n      if (localStorage.getItem(cookieKey) === 'true') hideCookieModal();\n      else showCookieModal();\n    } catch (e) {\n      showCookieModal();\n    }\n\n    if (cookieAcceptButton) {\n      cookieAcceptButton.addEventListener('click', function () {\n        try { localStorage.setItem(cookieKey, 'true'); } catch (e) {}\n        hideCookieModal();\n      });\n    }\n\n    const modalTexts = {\n      privacidad: {\n        title: 'Política de privacidad',\n        content: '<p>Esta información describe de forma general cómo se trata la información proporcionada en este sitio.</p><p>Los datos se utilizarán únicamente para atender solicitudes, prestar información relacionada con los servicios y mejorar la experiencia del sitio.</p><p>No solicitamos información financiera sensible a través de este aviso informativo.</p>'\n      },\n      terminos: {\n        title: 'Términos y condiciones',\n        content: '<p>El contenido de este sitio es informativo. La disponibilidad, características y condiciones de cualquier servicio pueden variar.</p><p>Antes de contratar un servicio, verifica las condiciones aplicables y la información proporcionada por el proveedor correspondiente.</p>'\n      },\n      detalles: {\n        title: 'Detalles del servicio',\n        content: '<p>Consulta la información disponible sobre el servicio seleccionado. La disponibilidad y las condiciones pueden variar según la ubicación y los requerimientos.</p>'\n      },\n      contacto: {\n        title: 'Ayuda y contacto',\n        content: '<p>Utiliza los canales de contacto publicados en esta página para solicitar información general o ayuda relacionada con el sitio.</p>'\n      }\n    };\n\n    function openModal(name) {\n      if (!modalOverlay) return;\n      const data = modalTexts[name] || modalTexts.detalles;\n      if (modalTitle) modalTitle.textContent = data.title;\n      if (modalContent) modalContent.innerHTML = data.content;\n      modalOverlay.classList.remove('hidden');\n      modalOverlay.setAttribute('aria-hidden', 'false');\n      document.body.classList.add('overflow-hidden');\n    }\n\n    function closeModal() {\n      if (!modalOverlay) return;\n      modalOverlay.classList.add('hidden');\n      modalOverlay.setAttribute('aria-hidden', 'true');\n      document.body.classList.remove('overflow-hidden');\n    }\n\n    document.querySelectorAll('[data-open-modal]').forEach(function (button) {\n      button.addEventListener('click', function () {\n        openModal(button.getAttribute('data-open-modal'));\n      });\n    });\n\n    if (modalClose) modalClose.addEventListener('click', closeModal);\n    if (modalOverlay) {\n      modalOverlay.addEventListener('click', function (event) {\n        if (event.target === modalOverlay) closeModal();\n      });\n    }\n\n    document.addEventListener('keydown', function (event) {\n      if (event.key === 'Escape') closeModal();\n    });\n\n    const searchForm = document.getElementById('searchForm');\n    if (searchForm) {\n      searchForm.addEventListener('submit', function (event) {\n        event.preventDefault();\n        const servicio = document.getElementById('origen');\n        const ciudad = document.getElementById('destino');\n        if (!servicio || !servicio.value || !ciudad || !ciudad.value) {\n          openModal('detalles');\n          if (modalTitle) modalTitle.textContent = 'Completa tu solicitud';\n          if (modalContent) modalContent.innerHTML = '<p>Selecciona el servicio y la ciudad para continuar.</p>';\n          return;\n        }\n        document.getElementById('ofertas')?.scrollIntoView({behavior:'smooth'});\n      });\n    }\n\n    const quoteButton = document.getElementById('quoteButton');\n    if (quoteButton) quoteButton.addEventListener('click', function () { openModal('detalles'); });\n  }\n\n  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);\n  else init();\n})();\n</script>\n</body>
-<br>
+
+<script>
+(function () {
+  function init() {
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
+
+    const cookieModal = document.getElementById('cookieModal');
+    const cookieAcceptButton = document.getElementById('cookieAcceptButton');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalContent = document.getElementById('modalContent');
+    const modalClose = document.getElementById('modalClose');
+
+    const cookieKey = 'cookiesAccepted';
+
+    function showCookieModal() {
+      if (!cookieModal) return;
+      cookieModal.style.display = 'flex';
+      cookieModal.removeAttribute('aria-hidden');
+    }
+
+    function hideCookieModal() {
+      if (!cookieModal) return;
+      cookieModal.style.display = 'none';
+      cookieModal.setAttribute('aria-hidden', 'true');
+    }
+
+    try {
+      if (localStorage.getItem(cookieKey) === 'true') hideCookieModal();
+      else showCookieModal();
+    } catch (e) {
+      showCookieModal();
+    }
+
+    if (cookieAcceptButton) {
+      cookieAcceptButton.addEventListener('click', function () {
+        try { localStorage.setItem(cookieKey, 'true'); } catch (e) {}
+        hideCookieModal();
+      });
+    }
+
+    const modalTexts = {
+      privacidad: {
+        title: 'Política de privacidad',
+        content: '<p>Esta información describe de forma general cómo se trata la información proporcionada en este sitio.</p><p>Los datos se utilizarán únicamente para atender solicitudes, prestar información relacionada con los servicios y mejorar la experiencia del sitio.</p><p>No solicitamos información financiera sensible a través de este aviso informativo.</p>'
+      },
+      terminos: {
+        title: 'Términos y condiciones',
+        content: '<p>El contenido de este sitio es informativo. La disponibilidad, características y condiciones de cualquier servicio pueden variar.</p><p>Antes de contratar un servicio, verifica las condiciones aplicables y la información proporcionada por el proveedor correspondiente.</p>'
+      },
+      detalles: {
+        title: 'Detalles del servicio',
+        content: '<p>Consulta la información disponible sobre el servicio seleccionado. La disponibilidad y las condiciones pueden variar según la ubicación y los requerimientos.</p>'
+      },
+      contacto: {
+        title: 'Ayuda y contacto',
+        content: '<p>Utiliza los canales de contacto publicados en esta página para solicitar información general o ayuda relacionada con el sitio.</p>'
+      }
+    };
+
+    function openModal(name) {
+      if (!modalOverlay) return;
+      const data = modalTexts[name] || modalTexts.detalles;
+      if (modalTitle) modalTitle.textContent = data.title;
+      if (modalContent) modalContent.innerHTML = data.content;
+      modalOverlay.classList.remove('hidden');
+      modalOverlay.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeModal() {
+      if (!modalOverlay) return;
+      modalOverlay.classList.add('hidden');
+      modalOverlay.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    document.querySelectorAll('[data-open-modal]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        openModal(button.getAttribute('data-open-modal'));
+      });
+    });
+
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    if (modalOverlay) {
+      modalOverlay.addEventListener('click', function (event) {
+        if (event.target === modalOverlay) closeModal();
+      });
+    }
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') closeModal();
+    });
+
+    const searchForm = document.getElementById('searchForm');
+    if (searchForm) {
+      searchForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const servicio = document.getElementById('origen');
+        const ciudad = document.getElementById('destino');
+        if (!servicio || !servicio.value || !ciudad || !ciudad.value) {
+          openModal('detalles');
+          if (modalTitle) modalTitle.textContent = 'Completa tu solicitud';
+          if (modalContent) modalContent.innerHTML = '<p>Selecciona el servicio y la ciudad para continuar.</p>';
+          return;
+        }
+        document.getElementById('ofertas')?.scrollIntoView({behavior:'smooth'});
+      });
+    }
+
+    const quoteButton = document.getElementById('quoteButton');
+    if (quoteButton) quoteButton.addEventListener('click', function () { openModal('detalles'); });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const cookieModal = document.getElementById("cookieModal");
+    const cookieAcceptButton = document.getElementById("cookieAcceptButton");
+    const form = document.querySelector("form");
+    const ofertas = document.getElementById("ofertas");
+
+    // Cookies: aceptar y mostrar el contenido
+    function showPage() {
+        if (cookieModal) {
+            cookieModal.style.display = "none";
+            cookieModal.classList.add("hidden");
+        }
+        document.body.style.overflow = "";
+    }
+
+    if (localStorage.getItem("cookiesAccepted") === "true") {
+        showPage();
+    } else if (cookieModal) {
+        cookieModal.style.display = "flex";
+        cookieModal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+    }
+
+    if (cookieAcceptButton) {
+        cookieAcceptButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            localStorage.setItem("cookiesAccepted", "true");
+            showPage();
+        });
+    }
+
+    // Botón "Ver servicios": evita recargar la página y muestra la sección de servicios.
+    if (form) {
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (ofertas) {
+                ofertas.classList.remove("hidden");
+                setTimeout(function () {
+                    ofertas.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }, 50);
+            }
+        });
+    }
+
+    // Cerrar modales
+    document.querySelectorAll("[data-close-modal]").forEach(function (button) {
+        button.addEventListener("click", function () {
+            const modalId = button.getAttribute("data-close-modal");
+            const modal = document.getElementById(modalId);
+            if (modal) modal.classList.add("hidden");
+        });
+    });
+
+    document.querySelectorAll("[data-open-modal]").forEach(function (button) {
+        button.addEventListener("click", function () {
+            const modalId = button.getAttribute("data-open-modal");
+            const modal = document.getElementById(modalId);
+            if (modal) modal.classList.remove("hidden");
+        });
+    });
+
+    document.querySelectorAll("[data-modal-overlay]").forEach(function (overlay) {
+        overlay.addEventListener("click", function (event) {
+            if (event.target === overlay) overlay.classList.add("hidden");
+        });
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            document.querySelectorAll("[data-modal-overlay]").forEach(function (modal) {
+                modal.classList.add("hidden");
+            });
+        }
+    });
+
+    // Botón Cotizar
+    const quoteButton = document.getElementById("quoteButton");
+    if (quoteButton) {
+        quoteButton.addEventListener("click", function () {
+            const modal = document.getElementById("detalles");
+            if (modal) modal.classList.remove("hidden");
+        });
+    }
+
+    // Validación visual básica del formulario
+    document.querySelectorAll("input, select").forEach(function (field) {
+        field.addEventListener("invalid", function () {
+            field.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+    });
+
+    // Inicializar iconos si Lucide está disponible
+    if (window.lucide && typeof window.lucide.createIcons === "function") {
+        window.lucide.createIcons();
+    }
+});
+</script>
+
+</body>
 </html>
