@@ -1,760 +1,1598 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Jelpit – Soluciones para tu conjunto, hogar y empresa</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <meta name="theme-color" content="#2e0063" />
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18436460751"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Casa Conjuntos Clean - Servicios profesionales de aseo, limpieza y mantenimiento integral para conjuntos residenciales y edificios.">
+  <title>Casa Conjuntos Clean | Aseo y Mantenimiento</title>
 
-  gtag('config', 'AW-18436460751');
-</script>
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com/"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              teal:    "#82e778",
-              cyan:    "#d2ff5c",
-              magenta: "#75298c",
-              red:     "#f2c335",
-              dark:    "#2e0063",
-              navy:    "#1a0047",
-            }
-          },
-          boxShadow: {
-            soft: "0 20px 65px rgba(0,0,0,0.50)"
-          },
-          borderRadius: {
-            "3xl": "1.75rem"
-          }
-        }
-      }
-    };
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com/">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    body { font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    :root {
+      --primary: #8B5CF6;
+      --primary-dark: #6D28D9;
+      --secondary: #A78BFA;
+      --dark: #1E1B2E;
+      --light: #F5F3FF;
+      --gray: #6B7280;
+      --white: #FFFFFF;
+      --shadow: 0 10px 30px rgba(109, 40, 217, 0.10);
+      --transition: all 0.3s ease;
+    }
 
-    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .animate-marquee { animation: marquee 22s linear infinite; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-    /* Textura Jelpit */
-    .topo:before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      opacity:.10;
-      z-index:0;
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(109, 40, 217, 0.08);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo span {
+      color: var(--secondary);
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .btn-nav {
+      background: var(--primary);
+      color: var(--white) !important;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-nav:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      padding: 160px 5% 100px;
       background:
-        radial-gradient(1000px circle at 18% 12%, rgba(210,255,92,.16), transparent 56%),
-        radial-gradient(900px circle at 86% 18%, rgba(117,41,140,.12), transparent 60%),
-        radial-gradient(900px circle at 50% 112%, rgba(242,195,53,.12), transparent 56%),
-        radial-gradient(700px circle at 78% 92%, rgba(130,231,120,.10), transparent 58%),
-        repeating-linear-gradient(0deg, rgba(255,255,255,.030) 0, rgba(255,255,255,.030) 1px, transparent 1px, transparent 22px),
-        repeating-linear-gradient(90deg, rgba(255,255,255,.018) 0, rgba(255,255,255,.018) 1px, transparent 1px, transparent 28px);
-      mix-blend-mode: overlay;
+        linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.06) 0%,
+          rgba(167, 139, 250, 0.08) 100%
+        );
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      min-height: 90vh;
     }
 
-    .shine {
-      background-size: 200% 200%;
-      animation: shineMove 10s ease-in-out infinite;
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
     }
-    @keyframes shineMove {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
+
+    .hero-text h1 span {
+      color: var(--primary);
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 20px rgba(139, 92, 246, 0.30);
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+
+    .btn-whatsapp {
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 20px rgba(139, 92, 246, 0.30);
+      transition: var(--transition);
+    }
+
+    .btn-whatsapp:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+
+    .hero-stats {
+      margin-top: 3rem;
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .stat-icon {
+      color: var(--secondary);
+      font-size: 1rem;
+    }
+
+    .stat-item h3 {
+      font-size: 2rem;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .stat-item p {
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin-bottom: 0;
+    }
+
+    .hero-card {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(139, 92, 246, 0.08);
+    }
+
+    .hero-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-card p {
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-item i {
+      color: var(--primary);
+    }
+
+    /* =========================
+       SECCIONES
+    ========================= */
+
+    section {
+      padding: 100px 5%;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 4rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      color: var(--gray);
+    }
+
+    /* =========================
+       SERVICIOS
+    ========================= */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid rgba(139, 92, 246, 0.06);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(109, 40, 217, 0.15);
+    }
+
+    .service-icon {
+      width: 65px;
+      height: 65px;
+      background: rgba(139, 92, 246, 0.12);
+      color: var(--primary);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .service-card ul {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .service-card ul li {
+      margin-bottom: 0.5rem;
+      color: var(--gray);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .service-card ul li i {
+      color: var(--primary);
+    }
+
+    /* =========================
+       POR QUÉ ELEGIRNOS
+    ========================= */
+
+    .why-us {
+      background: var(--white);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .feature-item i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    /* =========================
+       COBERTURA
+    ========================= */
+
+    .coverage-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .chip {
+      background: var(--white);
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      box-shadow: var(--shadow);
+      font-weight: 600;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .chip i {
+      color: var(--primary);
+    }
+
+    /* =========================
+       PROTOCOLO
+    ========================= */
+
+    .protocol-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+
+    .step-card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .step-number {
+      position: absolute;
+      top: -15px;
+      left: 20px;
+      background: var(--primary);
+      color: var(--white);
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .step-title {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-text {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* =========================
+       TESTIMONIOS
+    ========================= */
+
+    .testimonials {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.04) 0%,
+          rgba(167, 139, 250, 0.06) 100%
+        );
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .stars {
+      color: #F59E0B;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .client-info h4 {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .client-info span {
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+
+    /* =========================
+       FAQ
+    ========================= */
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--white);
+      margin-bottom: 1rem;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .faq-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta-banner {
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--primary-dark) 100%
+        );
+      color: var(--white);
+      border-radius: 30px;
+      padding: 4rem 2rem;
+      text-align: center;
+      margin: 0 5% 100px;
+    }
+
+    .cta-banner h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-banner p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: var(--dark);
+      color: var(--white);
+      padding: 80px 5% 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .footer-brand {
+      max-width: 320px;
+    }
+
+    .footer-brand .logo {
+      color: var(--white);
+      margin-bottom: 1rem;
+      display: inline-flex;
+    }
+
+    .footer-description {
+      color: #C4B5FD;
+      font-size: 0.9rem;
+    }
+
+    .footer-col h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .footer-col h4::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 40px;
+      height: 3px;
+      background: var(--secondary);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 0.8rem;
+      color: #C4B5FD;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .footer-col ul li strong {
+      color: var(--white);
+      min-width: 92px;
+      display: inline-block;
+    }
+
+    .footer-col ul li i {
+      color: var(--secondary);
+      margin-top: 3px;
+    }
+
+    .footer-col ul li a {
+      color: #C4B5FD;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--white);
+    }
+
+    .legal-links a {
+      display: block;
+      margin-bottom: 0.6rem;
+      color: #C4B5FD;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .legal-links a:hover {
+      color: var(--white);
+    }
+
+    .contact-link {
+      color: #C4B5FD;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .contact-link:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #C4B5FD;
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .footer-bottom-meta {
+      margin-top: 0.7rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem 1rem;
+    }
+
+    .footer-bottom-meta span {
+      white-space: nowrap;
+    }
+
+    /* =========================
+       WHATSAPP
+    ========================= */
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background-color: var(--primary);
+      color: var(--white);
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 0 10px 25px rgba(109, 40, 217, 0.35);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      background-color: var(--primary-dark);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 992px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 130px;
+        text-align: center;
+      }
+
+      .hero-btns,
+      .hero-stats {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .hero-text h1 {
+        font-size: 2.2rem;
+      }
+
+      .section-header h2 {
+        font-size: 1.8rem;
+      }
+
+      .footer-grid {
+        gap: 2rem;
+      }
+
+      .footer-col h4 {
+        margin-bottom: 1.1rem;
+      }
+
+      .footer-bottom {
+        text-align: left;
+      }
+
+      .footer-bottom-meta {
+        justify-content: flex-start;
+      }
     }
   </style>
 </head>
 
-<body class="topo bg-brand-navy text-slate-50">
+<body>
 
-  <!-- Cookies (IDs intactos + blur intacto) -->
-  <div
-    id="cookieModal"
-    class="fixed inset-0 z-60 flex items-end sm:items-center justify-center bg-brand-navy/70 backdrop-blur-sm px-4 py-6"
-    style="z-index: 33;"
-  >
-    <div class="w-full max-w-md rounded-3xl bg-brand-navy/85 p-4 sm:p-5 shadow-soft ring-1 ring-slate-800/80">
-      <div class="flex items-start gap-3">
-        <div class="mt-0.5 flex h-8 w-8 items-center justify-center rounded-full bg-brand-cyan/15 text-brand-cyan ring-1 ring-brand-cyan/20">
-          <i data-lucide="cookie" class="w-4 h-4"></i>
-        </div>
+  <!-- =========================
+       NAVEGACIÓN
+  ========================= -->
 
-        <div class="space-y-2 text-xs text-slate-200">
-          <h2 class="text-sm font-semibold text-white">
-            Cookies para mejorar tu experiencia
-          </h2>
-          <p>
-            Usamos cookies propias y de terceros para recordar tus preferencias,
-            medir el uso del sitio y optimizar tu solicitud de servicios.
-          </p>
-          <p>
-            Al continuar navegando o pulsar “Aceptar cookies”, autorizas este uso.
-            Para más información revisa nuestra política de privacidad.
-          </p>
+  <header>
+    <a href="#" class="logo">
+      <i class="fa-solid fa-broom"></i>
+      Casa<span>Conjuntos</span>Clean
+    </a>
 
-          <div class="flex flex-wrap items-center gap-2 pt-1">
-            <button
-              id="cookieAcceptButton"
-              class="inline-flex flex-1 items-center justify-center rounded-2xl bg-brand-cyan px-4 py-2 text-xs font-semibold text-slate-950 shadow-soft hover:brightness-110 active:brightness-95 transition"
-              type="button"
-            >
-              Aceptar cookies
-            </button>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#cobertura">Cobertura</a>
+      <a href="#testimonios">Testimonios</a>
 
-            <button
-              type="button"
-              data-open-modal="privacidad"
-              class="text-[11px] font-medium text-slate-300 underline underline-offset-2 hover:text-brand-cyan transition"
-            >
-              Ver detalles
-            </button>
-          </div>
+      <!-- COLOCA AQUÍ TU WHATSAPP -->
+      <a href="#" target="_blank" class="btn-nav">
+        <i class="fa-brands fa-whatsapp"></i>
+        Chat Directo
+      </a>
+    </nav>
+  </header>
 
-          <p class="text-[10px] text-slate-400">
-            Puedes ajustar tus cookies en cualquier momento desde tu navegador.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="min-h-screen bg-[radial-gradient(1200px_circle_at_18%_-10%,rgba(210,255,92,0.18),transparent_52%),radial-gradient(950px_circle_at_92%_12%,rgba(117,41,140,0.14),transparent_56%),radial-gradient(900px_circle_at_50%_118%,rgba(242,195,53,0.12),transparent_58%)]">
+  <!-- =========================
+       HERO
+  ========================= -->
 
-    <!-- Header -->
-    <header class="sticky top-0 z-30 border-b border-slate-800/70 bg-brand-dark/70 backdrop-blur">
-      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <div class="flex items-center gap-2">
-          <div class="flex h-9 w-9 items-center justify-center rounded-2xl bg-brand-teal/10 text-brand-teal ring-1 ring-brand-teal/15">
-            <i data-lucide="home" class="w-5 h-5"></i>
-          </div>
-          <div>
-            <span class="block text-sm font-semibold tracking-tight">Jelpit</span>
-            <span class="block text-[11px] text-slate-400">Soluciones para tu día a día</span>
-          </div>
-        </div>
+  <section class="hero" id="inicio">
 
-        <nav class="hidden items-center gap-6 text-sm text-slate-200 md:flex">
-          <a href="#buscador" class="hover:text-white transition">Inicio</a>
-          <a href="#ofertas" class="hover:text-white transition">Servicios</a>
-          <a href="#por-que" class="hover:text-white transition">Cómo funciona</a>
-          <button
-            data-open-modal="contacto"
-            class="rounded-full border border-slate-700/80 bg-slate-950/20 px-4 py-1.5 text-xs font-medium hover:border-brand-cyan hover:text-brand-cyan transition"
-          >
-            Ayuda
-          </button>
-        </nav>
+    <div class="hero-text">
 
-        <a
-          href="https://wa.me/573163326667"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 rounded-full bg-brand-red px-3 py-1.5 text-xs font-semibold text-slate-950 shadow-soft hover:brightness-110 active:brightness-95 transition"
-        >
-          <i data-lucide="message-circle" class="w-4 h-4"></i>
-          WhatsApp
+      <h1>
+        Mantenimiento Integral y Aseo Especializado en
+        <span>Barranquilla</span>
+      </h1>
+
+      <p>
+        Elevamos los estándares de limpieza e higiene en conjuntos residenciales,
+        edificios corporativos y propiedad horizontal. Soluciones continuas
+        adaptadas a las necesidades de administradores y residentes.
+      </p>
+
+      <div class="hero-btns">
+
+        <!-- COLOCA AQUÍ TU WHATSAPP -->
+        <a href="#" target="_blank" class="btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+          Cotizar por WhatsApp
         </a>
+
+        <!-- COLOCA AQUÍ TU CORREO -->
+        <a href="mailto:" class="btn-primary">
+          <i class="fa-solid fa-envelope"></i>
+          Enviar Correo
+        </a>
+
       </div>
-    </header>
 
-    <!-- Hero + Search -->
-    <main>
-      <section id="buscador" class="relative">
-        <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(210,255,92,0.14),_transparent_62%),radial-gradient(circle_at_bottom,_rgba(130,231,120,0.10),_transparent_72%)]"></div>
+      <div class="hero-stats">
 
-        <div class="mx-auto flex max-w-6xl flex-col gap-10 px-4 pb-16 pt-10 lg:flex-row lg:items-center lg:justify-between">
-          <!-- Copy -->
-          <div class="max-w-xl space-y-6">
-            <p class="inline-flex items-center gap-2 rounded-full bg-slate-900/35 px-3 py-1 text-[11px] font-medium text-slate-200 ring-1 ring-slate-700/60 backdrop-blur">
-              <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-brand-teal/20 text-brand-teal">
-                <i data-lucide="sparkles" class="w-3 h-3"></i>
-              </span>
-              Servicios expertos · Confianza garantizada · Todo para tu hogar
-            </p>
-
-            <h1 class="text-balance text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
-              Gestiona tu <span class="shine bg-gradient-to-r from-brand-cyan via-brand-teal to-brand-red bg-clip-text text-transparent">copropiedad y hogar</span> con Jelpit.
-            </h1>
-
-            <p class="text-sm leading-relaxed text-slate-300 sm:text-base">
-              Paga tu administración, solicita asistencias exclusivas y accede a soluciones integrales para tu bienestar.
-              Todo en un solo lugar y con el respaldo de expertos.
-            </p>
-
-            <!-- CTAs -->
-            <div class="mt-4 flex flex-wrap gap-3">
-              <button
-                type="button"
-                data-cta="servicios"
-                class="inline-flex items-center justify-center rounded-2xl bg-brand-red px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-soft hover:brightness-110 active:brightness-95 transition"
-              >
-                <i data-lucide="layout-grid" class="w-4 h-4 mr-1"></i>
-                Ver servicios
-              </button>
-              <button
-                type="button"
-                data-cta="cotizar"
-                class="inline-flex items-center justify-center rounded-2xl border border-slate-600/80 bg-slate-950/20 px-5 py-2.5 text-sm font-semibold text-slate-100 hover:border-brand-cyan hover:text-brand-cyan transition"
-              >
-                <i data-lucide="calculator" class="w-4 h-4 mr-1"></i>
-                Cotizar ahora
-              </button>
-            </div>
-
-            <div class="flex flex-wrap items-center gap-3 pt-1 text-[11px] text-slate-400">
-              <span class="inline-flex items-center gap-1 rounded-full bg-slate-900/40 px-3 py-1 ring-1 ring-slate-800/70">
-                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-cyan"></i>
-                Pagos con pasarelas confiables
-              </span>
-              <span class="inline-flex items-center gap-1 rounded-full bg-slate-900/40 px-3 py-1 ring-1 ring-slate-800/70">
-                <i data-lucide="clock" class="w-3.5 h-3.5 text-brand-teal"></i>
-                Gestión prioritaria
-              </span>
-            </div>
-          </div>
-
-          <!-- Search card -->
-          <div class="w-full max-w-md rounded-3xl bg-brand-navy/55 p-5 shadow-soft ring-1 ring-slate-800/80 backdrop-blur">
-            <div class="mb-4 flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-900/70 ring-1 ring-slate-800">
-                  <i data-lucide="layout-grid" class="w-4 h-4 text-brand-cyan"></i>
-                </span>
-                <div>
-                  <p class="text-xs font-semibold uppercase tracking-[0.14em] text-brand-cyan">
-                    Solicita un servicio
-                  </p>
-                  <p class="text-sm text-slate-300">
-                    Expertos a tu alcance
-                  </p>
-                </div>
-              </div>
-              <span class="rounded-full bg-slate-900/70 px-3 py-1 text-[11px] font-medium text-slate-200 ring-1 ring-slate-800">
-                Servicio Premium
-              </span>
-            </div>
-
-            <form id="searchForm" class="space-y-3 text-sm">
-              <div>
-                <label for="origen" class="mb-1 flex items-center gap-1 text-xs font-semibold text-slate-300">
-                  <i data-lucide="sparkles" class="w-3 h-3"></i>
-                  <span>Servicio</span>
-                </label>
-                <select id="origen" name="origen" class="w-full rounded-xl border border-slate-700/80 bg-slate-900/55 px-3 py-2 text-sm text-slate-100 focus:border-brand-cyan focus:outline-none focus:ring-1 focus:ring-brand-cyan/70 transition">
-                  <option value="">¿Qué necesitas hoy?</option>
-                  <option value="administracion">Pagar administración</option>
-                  <option value="vivienda">Crédito de vivienda</option>
-                  <option value="asistencias">Asistencias para el hogar</option>
-                  <option value="hogar">Servicios para el hogar</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="destino" class="mb-1 flex items-center gap-1 text-xs font-semibold text-slate-300">
-                  <i data-lucide="map-pin" class="w-3 h-3"></i>
-                  <span>Ciudad</span>
-                </label>
-                <select id="destino" name="destino" class="w-full rounded-xl border border-slate-700/80 bg-slate-900/55 px-3 py-2 text-sm text-slate-100 focus:border-brand-magenta focus:outline-none focus:ring-1 focus:ring-brand-magenta/70 transition">
-                  <option value="">Selecciona tu ciudad</option>
-                  <option value="bogota">Bogotá</option>
-                  <option value="medellin">Medellín</option>
-                  <option value="cali">Cali</option>
-                  <option value="barranquilla">Barranquilla</option>
-                </select>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div class="min-w-0">
-                  <label for="fecha" class="mb-1 flex items-center gap-1 text-xs font-semibold text-slate-300">
-                    <i data-lucide="calendar" class="w-3 h-3"></i>
-                    <span>Fecha</span>
-                  </label>
-                  <input
-                    id="fecha"
-                    name="fecha"
-                    type="date"
-                    class="block w-full min-w-0 max-w-full rounded-xl border border-slate-700/80 bg-slate-900/55 px-3 py-2 text-base sm:text-sm text-slate-100 focus:border-brand-cyan focus:outline-none focus:ring-1 focus:ring-brand-cyan/70 transition"
-                  />
-                </div>
-
-                <div class="min-w-0">
-                  <label for="pasajeros" class="mb-1 flex items-center gap-1 text-xs font-semibold text-slate-300">
-                    <i data-lucide="clock" class="w-3 h-3"></i>
-                    <span>Frecuencia</span>
-                  </label>
-
-                  <div class="relative">
-                    <select
-                      id="pasajeros"
-                      name="pasajeros"
-                      class="appearance-none block w-full min-w-0 max-w-full rounded-xl border border-slate-700/80 bg-slate-900/55 px-3 py-2 text-base sm:text-sm text-slate-100 focus:border-brand-cyan focus:outline-none focus:ring-1 focus:ring-brand-cyan/70 pr-8 transition"
-                    >
-                      <option value="once">Una sola vez</option>
-                      <option value="weekly">Semanal</option>
-                      <option value="biweekly">Quincenal</option>
-                      <option value="monthly">Mensual</option>
-                    </select>
-
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-400">
-                      <i data-lucide="chevron-down" class="w-4 h-4"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="flex items-center justify-between gap-2 pt-1">
-                <button
-                  type="submit"
-                  class="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-soft hover:bg-white active:brightness-95 transition"
-                >
-                  <span>Ver servicios</span>
-                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </button>
-
-                <button
-                  type="button"
-                  id="quoteButton"
-                  class="inline-flex flex-1 items-center justify-center gap-1 rounded-2xl bg-brand-red px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-soft hover:brightness-110 active:brightness-95 transition"
-                >
-                  <i data-lucide="calculator" class="w-4 h-4"></i>
-                  Cotizar
-                </button>
-              </div>
-
-              <p class="pt-1 text-[10px] leading-relaxed text-slate-400">
-                Servicios sujetos a disponibilidad en tu zona. Precios referenciales sujetos a cambios según el diagnóstico técnico o requerimientos adicionales.
-              </p>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <!-- Promo block -->
-      <section class="mx-auto mb-14 max-w-6xl px-4">
-        <div class="grid overflow-hidden rounded-3xl bg-brand-dark text-slate-50 shadow-soft md:grid-cols-[1.15fr,1fr] ring-1 ring-slate-800/60">
-          <div class="relative flex items-center justify-center bg-gradient-to-br from-brand-navy via-brand-dark to-black px-6 py-6 sm:px-8 sm:py-10">
-            <div class="absolute inset-0 bg-[radial-gradient(circle_at_left,_rgba(130,231,120,0.14),_transparent_55%),radial-gradient(circle_at_right,_rgba(210,255,92,0.18),_transparent_55%)]"></div>
-            <div class="relative text-center md:text-left">
-              <p class="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-brand-cyan">
-                Más tiempo para ti
-              </p>
-              <h2 class="text-3xl font-extrabold leading-tight sm:text-4xl">
-                Nosotros lo hacemos por ti
-              </h2>
-              <p class="mt-3 max-w-md text-sm text-slate-200">
-                Reserva servicios de aseo, plomería o mantenimiento con expertos certificados.
-              </p>
-              <p class="mt-4 text-3xl font-extrabold sm:text-4xl">
-                <span class="text-brand-red">Garantía total</span>
-                <span class="ml-1 text-base font-semibold text-slate-300">en cada servicio</span>
-              </p>
-            </div>
-          </div>
-          <div class="flex flex-col justify-between gap-4 bg-brand-navy/80 px-6 py-6 sm:px-8 sm:py-8 backdrop-blur">
-            <ul class="space-y-2 text-sm text-slate-200">
-              <li>• Profesionales verificados y capacitados.</li>
-              <li>• Agenda fácil y rápida desde tu celular.</li>
-              <li>• Soporte personalizado en cada paso.</li>
-            </ul>
-            <div class="flex flex-wrap items-center gap-3">
-              <button class="inline-flex items-center justify-center rounded-full bg-brand-cyan px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-soft hover:brightness-110 active:brightness-95 transition">
-                Agendar ahora
-                <i data-lucide="calendar" class="w-4 h-4 ml-1"></i>
-              </button>
-              <button class="inline-flex items-center justify-center rounded-full border border-slate-600/80 bg-slate-950/20 px-4 py-2 text-xs font-semibold text-slate-200 hover:border-brand-teal hover:text-brand-teal transition">
-                Ver servicios
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Offers -->
-      <section id="ofertas" class="mx-auto max-w-6xl px-4 pb-16">
-        <div class="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-          <div>
-            <h2 class="text-2xl font-semibold text-white sm:text-3xl">
-              Servicios destacados
-            </h2>
-            <p class="text-sm text-slate-300">
-              Soluciones integrales con la mejor relación calidad-precio.
-            </p>
-          </div>
-          <div class="flex flex-wrap gap-2 text-xs">
-            <button class="rounded-full bg-slate-900/60 px-4 py-1.5 text-slate-100 ring-1 ring-slate-700/80 hover:ring-brand-cyan/60 transition">
-              Todos los servicios
-            </button>
-            <button class="rounded-full bg-slate-900/40 px-4 py-1.5 text-slate-300 ring-1 ring-slate-700/60 hover:ring-brand-cyan/50 transition">
-              Hogar
-            </button>
-            <button class="rounded-full bg-slate-900/40 px-4 py-1.5 text-slate-300 ring-1 ring-slate-700/60 hover:ring-brand-cyan/50 transition">
-              Empresa
-            </button>
-          </div>
+        <div class="stat-item">
+          <i class="fa-solid fa-shield-heart stat-icon"></i>
+          <h3>100%</h3>
+          <p>Garantía de Servicio</p>
         </div>
 
-        <div id="offersGrid" class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-
-          <article class="group flex flex-col rounded-3xl bg-brand-navy/55 p-5 shadow-soft ring-1 ring-slate-800/70 hover:-translate-y-1 hover:ring-brand-cyan/70 transition backdrop-blur">
-            <div class="mb-2 flex items-center justify-between text-[11px] text-slate-400">
-              <span class="inline-flex items-center gap-1 rounded-full bg-slate-900/60 px-2 py-1 ring-1 ring-slate-800">
-                <span class="h-1.5 w-1.5 rounded-full bg-brand-teal"></span>
-                Servicio Digital
-              </span>
-              <span class="rounded-full bg-slate-900/60 px-2 py-1 text-[10px] text-slate-300 ring-1 ring-slate-800">
-                Fácil y Seguro
-              </span>
-            </div>
-
-            <h3 class="text-sm font-semibold text-slate-100">Pago de Administración</h3>
-            <p class="mt-1 text-xs text-slate-400">Paga la administración de tu conjunto fácil y seguro.</p>
-
-            <p class="mt-4 text-2xl font-extrabold tracking-tight text-white">
-              Online <span class="text-xs font-medium text-slate-400 align-middle">SÍ</span>
-            </p>
-
-            <div class="mt-4 flex items-center gap-2">
-              <button class="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl bg-brand-red px-4 py-2 text-sm font-semibold text-slate-950 shadow-soft hover:brightness-110 active:brightness-95 transition">
-                Pagar ahora <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </button>
-              <button type="button" data-open-modal="detalles" class="rounded-2xl border border-slate-700/80 bg-slate-950/20 px-4 py-2 text-xs font-medium text-slate-200 hover:border-brand-cyan hover:text-brand-cyan transition">
-                Detalles
-              </button>
-            </div>
-          </article>
-
-          <article class="group flex flex-col rounded-3xl bg-brand-navy/55 p-5 shadow-soft ring-1 ring-slate-800/70 hover:-translate-y-1 hover:ring-brand-magenta/70 transition backdrop-blur">
-            <div class="mb-2 flex items-center justify-between text-[11px] text-slate-400">
-              <span class="inline-flex items-center gap-1 rounded-full bg-slate-900/60 px-2 py-1 ring-1 ring-slate-800">
-                <span class="h-1.5 w-1.5 rounded-full bg-brand-teal"></span>
-                Vivienda
-              </span>
-              <span class="rounded-full bg-slate-900/60 px-2 py-1 text-[10px] text-slate-300 ring-1 ring-slate-800">
-                Te asesoramos
-              </span>
-            </div>
-
-            <h3 class="text-sm font-semibold text-slate-100">Crédito de Vivienda</h3>
-            <p class="mt-1 text-xs text-slate-400">Te acompañamos en cada paso para tener tu hogar propio.</p>
-
-            <p class="mt-4 text-2xl font-extrabold tracking-tight text-white">
-              Consulta <span class="text-xs font-medium text-slate-400 align-middle">GRATIS</span>
-            </p>
-
-            <div class="mt-4 flex items-center gap-2">
-              <button class="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl bg-brand-red px-4 py-2 text-sm font-semibold text-slate-950 shadow-soft hover:brightness-110 active:brightness-95 transition">
-                Pedir crédito <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </button>
-              <button type="button" data-open-modal="detalles" class="rounded-2xl border border-slate-700/80 bg-slate-950/20 px-4 py-2 text-xs font-medium text-slate-200 hover:border-brand-cyan hover:text-brand-cyan transition">
-                Detalles
-              </button>
-            </div>
-          </article>
-
-          <article class="group flex flex-col rounded-3xl bg-brand-navy/55 p-5 shadow-soft ring-1 ring-slate-800/70 hover:-translate-y-1 hover:ring-brand-teal/70 transition backdrop-blur">
-            <div class="mb-2 flex items-center justify-between text-[11px] text-slate-400">
-              <span class="inline-flex items-center gap-1 rounded-full bg-slate-900/60 px-2 py-1 ring-1 ring-slate-800">
-                <span class="h-1.5 w-1.5 rounded-full bg-brand-teal"></span>
-                Exclusivo
-              </span>
-              <span class="rounded-full bg-slate-900/60 px-2 py-1 text-[10px] text-slate-300 ring-1 ring-slate-800">
-                Para ti
-              </span>
-            </div>
-
-            <h3 class="text-sm font-semibold text-slate-100">Asistencias para el hogar</h3>
-            <p class="mt-1 text-xs text-slate-400">Consulta las opciones de asistencia disponibles para tu hogar.</p>
-
-            <p class="mt-4 text-2xl font-extrabold tracking-tight text-white">
-              Beneficio <span class="text-xs font-medium text-slate-400 align-middle">GRATIS</span>
-            </p>
-
-            <div class="mt-4 flex items-center gap-2">
-              <button class="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl bg-brand-red px-4 py-2 text-sm font-semibold text-slate-950 shadow-soft hover:brightness-110 active:brightness-95 transition">
-                Ver asistencias <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </button>
-              <button type="button" data-open-modal="detalles" class="rounded-2xl border border-slate-700/80 bg-slate-950/20 px-4 py-2 text-xs font-medium text-slate-200 hover:border-brand-cyan hover:text-brand-cyan transition">
-                Detalles
-              </button>
-            </div>
-          </article>
-
-          <article class="group flex flex-col rounded-3xl bg-brand-navy/55 p-5 shadow-soft ring-1 ring-slate-800/70 hover:-translate-y-1 hover:ring-brand-red/70 transition backdrop-blur">
-            <div class="mb-2 flex items-center justify-between text-[11px] text-slate-400">
-              <span class="inline-flex items-center gap-1 rounded-full bg-slate-900/60 px-2 py-1 ring-1 ring-slate-800">
-                <span class="h-1.5 w-1.5 rounded-full bg-brand-teal"></span>
-                Mediación
-              </span>
-              <span class="rounded-full bg-slate-900/60 px-2 py-1 text-[10px] text-slate-300 ring-1 ring-slate-800">
-                Rápido
-              </span>
-            </div>
-
-            <h3 class="text-sm font-semibold text-slate-100">Conciliación Fácil</h3>
-            <p class="mt-1 text-xs text-slate-400">Resuelve tus conflictos de convivencia en menos de 15 minutos.</p>
-
-            <p class="mt-4 text-2xl font-extrabold tracking-tight text-white">
-              Express <span class="text-xs font-medium text-slate-400 align-middle">SÍ</span>
-            </p>
-
-            <div class="mt-4 flex items-center gap-2">
-              <button class="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl bg-brand-red px-4 py-2 text-sm font-semibold text-slate-950 shadow-soft hover:brightness-110 active:brightness-95 transition">
-                Conciliar <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </button>
-              <button type="button" data-open-modal="detalles" class="rounded-2xl border border-slate-700/80 bg-slate-950/20 px-4 py-2 text-xs font-medium text-slate-200 hover:border-brand-cyan hover:text-brand-cyan transition">
-                Detalles
-              </button>
-            </div>
-          </article>
-
-          <article class="group flex flex-col rounded-3xl bg-brand-navy/55 p-5 shadow-soft ring-1 ring-slate-800/70 hover:-translate-y-1 hover:ring-brand-cyan/70 transition backdrop-blur">
-            <div class="mb-2 flex items-center justify-between text-[11px] text-slate-400">
-              <span class="inline-flex items-center gap-1 rounded-full bg-slate-900/60 px-2 py-1 ring-1 ring-slate-800">
-                <span class="h-1.5 w-1.5 rounded-full bg-brand-teal"></span>
-                Administración
-              </span>
-              <span class="rounded-full bg-slate-900/60 px-2 py-1 text-[10px] text-slate-300 ring-1 ring-slate-800">
-                Gestión
-              </span>
-            </div>
-
-            <h3 class="text-sm font-semibold text-slate-100">Jelpit Conjuntos</h3>
-            <p class="mt-1 text-xs text-slate-400">Herramientas digitales para facilitar la gestión de tu conjunto.</p>
-
-            <p class="mt-4 text-2xl font-extrabold tracking-tight text-white">
-              Expertos <span class="text-xs font-medium text-slate-400 align-middle">SI</span>
-            </p>
-
-            <div class="mt-4 flex items-center gap-2">
-              <button class="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl bg-brand-red px-4 py-2 text-sm font-semibold text-slate-950 shadow-soft hover:brightness-110 active:brightness-95 transition">
-                Conocer más <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </button>
-              <button type="button" data-open-modal="detalles" class="rounded-2xl border border-slate-700/80 bg-slate-950/20 px-4 py-2 text-xs font-medium text-slate-200 hover:border-brand-cyan hover:text-brand-cyan transition">
-                Detalles
-              </button>
-            </div>
-          </article>
-
-          <article class="group flex flex-col rounded-3xl bg-brand-navy/55 p-5 shadow-soft ring-1 ring-slate-800/70 hover:-translate-y-1 hover:ring-brand-magenta/70 transition backdrop-blur">
-            <div class="mb-2 flex items-center justify-between text-[11px] text-slate-400">
-              <span class="inline-flex items-center gap-1 rounded-full bg-slate-900/60 px-2 py-1 ring-1 ring-slate-800">
-                <span class="h-1.5 w-1.5 rounded-full bg-brand-teal"></span>
-                Empresas
-              </span>
-              <span class="rounded-full bg-slate-900/60 px-2 py-1 text-[10px] text-slate-300 ring-1 ring-slate-800">
-                Corporativo
-              </span>
-            </div>
-
-            <h3 class="text-sm font-semibold text-slate-100">Jelpit Empresas</h3>
-            <p class="mt-1 text-xs text-slate-400">Soluciones integrales para el mantenimiento y aseo de tu negocio.</p>
-
-            <p class="mt-4 text-2xl font-extrabold tracking-tight text-white">
-              Integral <span class="text-xs font-medium text-slate-400 align-middle">SI</span>
-            </p>
-
-            <div class="mt-4 flex items-center gap-2">
-              <button class="flex-1 inline-flex items-center justify-center gap-1.5 rounded-2xl bg-brand-red px-4 py-2 text-sm font-semibold text-slate-950 shadow-soft hover:brightness-110 active:brightness-95 transition">
-                Ver servicios <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </button>
-              <button type="button" data-open-modal="detalles" class="rounded-2xl border border-slate-700/80 bg-slate-950/20 px-4 py-2 text-xs font-medium text-slate-200 hover:border-brand-cyan hover:text-brand-cyan transition">
-                Detalles
-              </button>
-            </div>
-          </article>
-
+        <div class="stat-item">
+          <i class="fa-solid fa-clock stat-icon"></i>
+          <h3>Lun - Vie</h3>
+          <p>08:00 AM - 05:45 PM</p>
         </div>
-      </section>
 
-      <!-- Why -->
-      <section id="por-que" class="mx-auto max-w-6xl px-4 pb-16">
-        <div class="grid gap-10 md:grid-cols-[1.1fr,1fr]">
-          <div>
-            <h2 class="text-2xl font-semibold text-white sm:text-3xl">
-              ¿Por qué reservar en Jelpit?
-            </h2>
-            <p class="mt-3 text-sm text-slate-300">
-              Conectamos tus necesidades con expertos calificados y procesos seguros.
-              Tú pides el servicio; nosotros nos encargamos de la excelencia.
-            </p>
-
-            <div class="mt-6 grid gap-4 sm:grid-cols-2">
-              <div class="rounded-2xl bg-brand-navy/55 p-4 ring-1 ring-slate-800/70 backdrop-blur hover:ring-brand-cyan/45 transition">
-                <p class="text-lg text-brand-cyan"><i data-lucide="shield-check" class="w-5 h-5"></i></p>
-                <h3 class="mt-2 text-sm font-semibold text-white">Expertos verificados</h3>
-                <p class="mt-1 text-xs text-slate-300">
-                  Profesionales con antecedentes verificados y capacitación constante.
-                </p>
-              </div>
-
-              <div class="rounded-2xl bg-brand-navy/55 p-4 ring-1 ring-slate-800/70 backdrop-blur hover:ring-brand-magenta/45 transition">
-                <p class="text-lg text-brand-magenta"><i data-lucide="zap" class="w-5 h-5"></i></p>
-                <h3 class="mt-2 text-sm font-semibold text-white">Respuesta rápida</h3>
-                <p class="mt-1 text-xs text-slate-300">
-                  Agendamiento inmediato y cumplimiento estricto de horarios.
-                </p>
-              </div>
-
-              <div class="rounded-2xl bg-brand-navy/55 p-4 ring-1 ring-slate-800/70 backdrop-blur hover:ring-brand-teal/45 transition">
-                <p class="text-lg text-brand-teal"><i data-lucide="heart" class="w-5 h-5"></i></p>
-                <h3 class="mt-2 text-sm font-semibold text-white">Garantía Jelpit</h3>
-                <p class="mt-1 text-xs text-slate-300">
-                  Si no quedas satisfecho, revisamos el servicio sin costo adicional.
-                </p>
-              </div>
-
-              <div class="rounded-2xl bg-brand-navy/55 p-4 ring-1 ring-slate-800/70 backdrop-blur hover:ring-brand-cyan/45 transition">
-                <p class="text-lg text-brand-cyan"><i data-lucide="lock" class="w-5 h-5"></i></p>
-                <h3 class="mt-2 text-sm font-semibold text-white">Datos seguros</h3>
-                <p class="mt-1 text-xs text-slate-300">
-                  Usamos tu información solo para gestionar tu reserva y mejorar el servicio.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="space-y-5">
-            <div class="rounded-3xl bg-brand-navy/55 p-5 ring-1 ring-slate-800/70 backdrop-blur">
-              <div class="flex items-center justify-between gap-2">
-                <h3 class="text-sm font-semibold text-white">Términos y condiciones</h3>
-                <button data-open-modal="terminos" class="text-xs font-semibold text-brand-cyan hover:underline">
-                  Ver detalle
-                </button>
-              </div>
-              <p class="mt-2 text-[11px] leading-relaxed text-slate-300">
-                El uso de la plataforma se rige por las reglas comerciales de Jelpit y por las
-                condiciones de cada tipo de servicio o proveedor aliado. Los precios publicados son referenciales,
-                incluyen IVA y pueden variar según la complejidad del requerimiento.
-              </p>
-            </div>
-
-            <div class="rounded-3xl bg-brand-navy/55 p-5 ring-1 ring-slate-800/70 backdrop-blur">
-              <div class="flex items-center justify-between gap-2">
-                <h3 class="text-sm font-semibold text-white">Política de privacidad</h3>
-                <button data-open-modal="privacidad" class="text-xs font-semibold text-brand-cyan hover:underline">
-                  Ver detalle
-                </button>
-              </div>
-              <p class="mt-2 text-[11px] leading-relaxed text-slate-300">
-                Protegemos tu información personal con minimización, seguridad y uso responsable de datos.
-                Solo compartimos lo necesario con los expertos asignados y pasarelas de pago
-                que intervienen en la prestación del servicio.
-              </p>
-            </div>
-          </div>
+        <div class="stat-item">
+          <i class="fa-solid fa-phone-volume stat-icon"></i>
+          <h3>Contacto</h3>
+          <p>Línea Directa</p>
         </div>
-      </section>
 
-      <!-- Transparencia de marca y contacto verificable -->
-      <section id="contacto" class="mx-auto max-w-6xl px-4 pb-16" aria-labelledby="transparencia-title">
-        <div class="grid gap-5 md:grid-cols-2">
-          <div class="rounded-3xl bg-brand-navy/70 p-6 ring-1 ring-brand-cyan/40 backdrop-blur">
-            <div class="flex items-start gap-3">
-              <span class="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-cyan/15 text-brand-cyan">
-                <i data-lucide="badge-info" class="h-5 w-5"></i>
-              </span>
-              <div>
-                <h2 id="transparencia-title" class="text-base font-semibold text-white">Información de transparencia</h2>
-                <p class="mt-2 text-sm leading-relaxed text-slate-200">
-                  Este es un sitio independiente. No está afiliado, patrocinado, autorizado ni administrado por Davivienda.
-                  Las marcas mencionadas pertenecen a sus respectivos titulares y no implican una relación comercial u oficial.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="rounded-3xl bg-brand-navy/70 p-6 ring-1 ring-slate-700/80 backdrop-blur">
-            <h2 class="text-base font-semibold text-white">Información de contacto</h2>
-            <address class="mt-3 space-y-3 not-italic text-sm text-slate-200">
-              <p class="flex items-start gap-2">
-                <i data-lucide="user-round-check" class="mt-0.5 h-4 w-4 shrink-0 text-brand-red"></i>
-                <span><strong class="text-white">Responsable legal:</strong> JOHAN STEFAN JIMENEZ MACHADO</span>
-              </p>
-              <p class="flex items-start gap-2">
-                <i data-lucide="mail" class="mt-0.5 h-4 w-4 shrink-0 text-brand-cyan"></i>
-                <span><strong class="text-white">Correo:</strong> <a href="mailto:itscamesfromhellss@gmail.com" class="break-all underline underline-offset-2 hover:text-brand-cyan">itscamesfromhellss@gmail.com</a></span>
-              </p>
-              <p class="flex items-start gap-2">
-                <i data-lucide="message-circle" class="mt-0.5 h-4 w-4 shrink-0 text-brand-cyan"></i>
-                <span><strong class="text-white">WhatsApp y teléfono:</strong> <a href="https://wa.me/573163326667" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-brand-cyan">+57 316 332 6667</a></span>
-              </p>
-              <p class="flex items-start gap-2">
-                <i data-lucide="map-pin" class="mt-0.5 h-4 w-4 shrink-0 text-brand-teal"></i>
-                <span><strong class="text-white">Dirección:</strong> Cra. 73 #44A-52, Laureles - Estadio, Medellín, Antioquia, Colombia.</span>
-              </p>
-            </address>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="border-t border-slate-800/80 bg-brand-navy/60 backdrop-blur">
-      <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
-        <div class="space-y-1">
-          <p>© 2026 Jelpit. Todos los derechos reservados.</p>
-          <p>Responsable legal: JOHAN STEFAN JIMENEZ MACHADO</p>
-          <p><a href="mailto:itscamesfromhellss@gmail.com" class="hover:text-brand-cyan">itscamesfromhellss@gmail.com</a> · <a href="tel:+573163326667" class="hover:text-brand-cyan">+57 316 332 6667</a></p>
-          <p>Cra. 73 #44A-52, Medellín, Antioquia</p>
-        </div>
-        <div class="flex flex-wrap items-center gap-4">
-          <button data-open-modal="terminos" class="hover:text-brand-cyan transition">Términos y condiciones</button>
-          <button data-open-modal="privacidad" class="hover:text-brand-cyan transition">Política de privacidad</button>
-          <a href="#contacto" class="hover:text-brand-cyan transition">Contacto</a>
-        </div>
       </div>
-    </footer>
-  </div>
 
-  <!-- Modal genérico (IDs intactos) -->
-  <div
-    id="modalOverlay"
-    class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/70 px-4"
-    aria-hidden="true"
-  >
-    <div class="max-h-[80vh] w-full max-w-2xl overflow-hidden rounded-3xl bg-brand-navy/85 p-5 shadow-soft ring-1 ring-slate-800/80 backdrop-blur">
-      <div class="mb-3 flex items-center justify-between gap-4">
-        <h2 id="modalTitle" class="text-base font-semibold text-white"></h2>
-        <button id="modalClose" class="rounded-full bg-slate-900/70 px-3 py-1 text-xs text-slate-300 hover:bg-slate-800 transition">
-          Cerrar
-        </button>
-      </div>
-      <div id="modalContent" class="max-h-[60vh] space-y-3 overflow-y-auto text-xs leading-relaxed text-slate-200"></div>
     </div>
+
+
+    <div class="hero-card">
+
+      <h3>Solicita una Inspección Gratuita</h3>
+
+      <p>
+        Evaluamos las áreas comunes de tu copropiedad y diseñamos un plan
+        de limpieza a la medida.
+      </p>
+
+      <div class="info-list">
+
+        <div class="info-item">
+          <i class="fa-solid fa-check-circle"></i>
+          <span>Personal capacitado y asegurado</span>
+        </div>
+
+        <div class="info-item">
+          <i class="fa-solid fa-check-circle"></i>
+          <span>Insumos de alta eficiencia</span>
+        </div>
+
+        <div class="info-item">
+          <i class="fa-solid fa-check-circle"></i>
+          <span>Supervisión periódica de labores</span>
+        </div>
+
+        <div class="info-item">
+          <i class="fa-solid fa-business-time"></i>
+          <span>Horario de atención: lunes a viernes</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SERVICIOS
+  ========================= -->
+
+  <section class="services" id="servicios">
+
+    <div class="section-header">
+
+      <h2>Nuestros Servicios de Mantenimiento y Aseo</h2>
+
+      <p>
+        Ofrecemos una cobertura integral para la conservación de la infraestructura
+        e higiene de áreas comunes.
+      </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+      <div class="service-card">
+
+        <div class="service-icon">
+          <i class="fa-solid fa-building"></i>
+        </div>
+
+        <h3>Aseo de Áreas Comunes</h3>
+
+        <p>
+          Mantenimiento diario o periódico de pasillos, escaleras,
+          recepciones y salones sociales.
+        </p>
+
+        <ul>
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Barrido y trapeado profundo
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Desinfección de pasamanos y ascensores
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Limpieza de vidrios y ventanales
+          </li>
+        </ul>
+
+      </div>
+
+
+      <div class="service-card">
+
+        <div class="service-icon">
+          <i class="fa-solid fa-tree"></i>
+        </div>
+
+        <h3>Mantenimiento de Zonas Verdes</h3>
+
+        <p>
+          Cuidado continuo de jardines, zonas de recreación y patios
+          interiores para copropiedades.
+        </p>
+
+        <ul>
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Corte y perfilado de césped
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Poda ornamental de plantas
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Control básico de maleza
+          </li>
+        </ul>
+
+      </div>
+
+
+      <div class="service-card">
+
+        <div class="service-icon">
+          <i class="fa-solid fa-dumpster"></i>
+        </div>
+
+        <h3>Gestión de Shuts de Basura</h3>
+
+        <p>
+          Higienización técnica de cuartos de acopio y conductos de
+          residuos para evitar malos olores.
+        </p>
+
+        <ul>
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Lavado con desengrasante industrial
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Desinfección bactericida
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Organización para recolección pública
+          </li>
+        </ul>
+
+      </div>
+
+
+      <div class="service-card">
+
+        <div class="service-icon">
+          <i class="fa-solid fa-person-swimming"></i>
+        </div>
+
+        <h3>Limpieza Perimetral y Piscinas</h3>
+
+        <p>
+          Mantenimiento de la estética exterior y superficies alrededor
+          de zonas húmedas.
+        </p>
+
+        <ul>
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Lavado a presión de pisos externos
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Desinfección de mobiliario de piscina
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Recolección continua de hojarasca
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       POR QUÉ ELEGIRNOS
+  ========================= -->
+
+  <section class="why-us">
+
+    <div class="section-header">
+
+      <h2>¿Por qué las copropiedades nos eligen?</h2>
+
+      <p>
+        Nos enfocamos en generar confianza, eficiencia operativa y excelente
+        presentación en cada espacio.
+      </p>
+
+    </div>
+
+
+    <div class="features-grid">
+
+      <div class="feature-item">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        <h3>Confiabilidad</h3>
+
+        <p>
+          Personal rigurosamente seleccionado y capacitado en atención
+          a propietarios.
+        </p>
+
+      </div>
+
+
+      <div class="feature-item">
+
+        <i class="fa-solid fa-clock"></i>
+
+        <h3>Puntualidad</h3>
+
+        <p>
+          Cumplimiento estricto de los horarios acordados con la administración.
+        </p>
+
+      </div>
+
+
+      <div class="feature-item">
+
+        <i class="fa-solid fa-location-dot"></i>
+
+        <h3>Servicio Local</h3>
+
+        <p>
+          Conocemos las necesidades de mantenimiento de conjuntos residenciales.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       COBERTURA
+  ========================= -->
+
+  <section id="cobertura">
+
+    <div class="section-header">
+
+      <h2>Cobertura de Servicio</h2>
+
+      <p>
+        Atendemos conjuntos residenciales y edificios en diferentes sectores.
+      </p>
+
+    </div>
+
+
+    <div class="coverage-list">
+
+      <div class="chip">
+        <i class="fa-solid fa-location-pin"></i>
+        Alto Prado
+      </div>
+
+      <div class="chip">
+        <i class="fa-solid fa-location-pin"></i>
+        Villa Santos
+      </div>
+
+      <div class="chip">
+        <i class="fa-solid fa-location-pin"></i>
+        El Recreo
+      </div>
+
+      <div class="chip">
+        <i class="fa-solid fa-location-pin"></i>
+        Miramar
+      </div>
+
+      <div class="chip">
+        <i class="fa-solid fa-location-pin"></i>
+        Boston
+      </div>
+
+      <div class="chip">
+        <i class="fa-solid fa-location-pin"></i>
+        Villa Carolina
+      </div>
+
+      <div class="chip">
+        <i class="fa-solid fa-location-pin"></i>
+        Riomar
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       PROTOCOLO
+  ========================= -->
+
+  <section style="background: var(--white);">
+
+    <div class="section-header">
+
+      <h2>Nuestro Protocolo de Trabajo</h2>
+
+      <p>
+        Un proceso estructurado para garantizar resultados medibles.
+      </p>
+
+    </div>
+
+
+    <div class="protocol-steps">
+
+      <div class="step-card">
+
+        <div class="step-number">1</div>
+
+        <h3 class="step-title">Diagnóstico</h3>
+
+        <p class="step-text">
+          Inspeccionamos las áreas del conjunto y determinamos
+          la frecuencia necesaria.
+        </p>
+
+      </div>
+
+
+      <div class="step-card">
+
+        <div class="step-number">2</div>
+
+        <h3 class="step-title">Propuesta</h3>
+
+        <p class="step-text">
+          Presentamos una cotización detallada según las necesidades
+          de la administración.
+        </p>
+
+      </div>
+
+
+      <div class="step-card">
+
+        <div class="step-number">3</div>
+
+        <h3 class="step-title">Ejecución</h3>
+
+        <p class="step-text">
+          Asignamos personal dotado e iniciamos labores bajo
+          supervisión periódica.
+        </p>
+
+      </div>
+
+
+      <div class="step-card">
+
+        <div class="step-number">4</div>
+
+        <h3 class="step-title">Evaluación</h3>
+
+        <p class="step-text">
+          Realizamos controles de calidad junto con el administrador
+          o consejo.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       TESTIMONIOS
+  ========================= -->
+
+  <section class="testimonials" id="testimonios">
+
+    <div class="section-header">
+
+      <h2>Comentarios y Opiniones</h2>
+
+      <p>
+        La satisfacción de nuestros clientes es nuestra mejor carta de presentación.
+      </p>
+
+    </div>
+
+
+    <div class="testimonial-grid">
+
+      <div class="testimonial-card">
+
+        <div class="stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+
+        <p>
+          "Excelente servicio. El equipo es puntual, organizado y
+          mantiene una comunicación clara y profesional."
+        </p>
+
+        <div class="client-info">
+          <h4>Cliente</h4>
+          <span>Administrador de Copropiedad</span>
+        </div>
+
+      </div>
+
+
+      <div class="testimonial-card">
+
+        <div class="stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+
+        <p>
+          "Muy buen servicio en limpieza, zonas verdes y mantenimiento
+          de las áreas comunes."
+        </p>
+
+        <div class="client-info">
+          <h4>Cliente</h4>
+          <span>Conjunto Residencial</span>
+        </div>
+
+      </div>
+
+
+      <div class="testimonial-card">
+
+        <div class="stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+
+        <p>
+          "Atención oportuna y excelente limpieza en las áreas comunes.
+          Muy recomendados."
+        </p>
+
+        <div class="client-info">
+          <h4>Cliente</h4>
+          <span>Residente y Propietario</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       PREGUNTAS FRECUENTES
+  ========================= -->
+
+  <section>
+
+    <div class="section-header">
+
+      <h2>Preguntas Frecuentes</h2>
+
+      <p>
+        Aclaramos tus dudas para la contratación de nuestros servicios.
+      </p>
+
+    </div>
+
+
+    <div class="faq-container">
+
+      <div class="faq-item">
+
+        <h3>
+          ¿Cómo puedo solicitar una cotización personalizada?
+        </h3>
+
+        <p>
+          Puedes comunicarte con nosotros por WhatsApp, teléfono o correo
+          electrónico para solicitar información y una cotización.
+        </p>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <h3>
+          ¿Cuál es el horario de atención?
+        </h3>
+
+        <p>
+          Atendemos de lunes a viernes en nuestro horario de atención.
+        </p>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <h3>
+          ¿Realizan contratos mensuales para conjuntos?
+        </h3>
+
+        <p>
+          Sí, ofrecemos esquemas de contratación mensual para mantenimiento
+          continuo ajustados a los requerimientos de cada propiedad.
+        </p>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <h3>
+          ¿El personal cuenta con elementos de protección?
+        </h3>
+
+        <p>
+          El personal utiliza uniformes e implementos adecuados para garantizar
+          su seguridad y la calidad del servicio.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CTA
+  ========================= -->
+
+  <div class="cta-banner">
+
+    <h2>
+      ¿Listo para mejorar la presentación de tu edificio?
+    </h2>
+
+    <p>
+      Solicita una cotización sin compromiso.
+    </p>
+
+    <!-- COLOCA AQUÍ TU WHATSAPP -->
+    <a href="#" target="_blank" class="btn-whatsapp"
+       style="background: var(--white); color: var(--dark);">
+
+      <i class="fa-brands fa-whatsapp"
+         style="color: var(--primary);"></i>
+
+      Chatear con nosotros
+
+    </a>
+
   </div>
 
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="assets/js/showModalCookies.js"></script>
-  <script src="assets/js/script.js"></script>
 
-  <!-- ====== NUEVO SCRIPT PARA REDIRECCIÓN AL ACEPTAR COOKIES ====== -->
-  <script>
-    (function() {
-      var acceptBtn = document.getElementById('cookieAcceptButton');
-      if (acceptBtn) {
-        acceptBtn.addEventListener('click', function(e) {
-          window.location.href = 'https://rebrand.ly/dbe308';
-        });
-      }
-    })();
-  </script>
-  <!-- ============================================================== -->
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="footer-grid">
+
+
+      <!-- MARCA -->
+
+      <div class="footer-col footer-brand">
+
+        <a href="#" class="logo">
+          <i class="fa-solid fa-broom"></i>
+          Casa<span>Conjuntos</span>Clean
+        </a>
+
+        <p class="footer-description">
+          Servicios profesionales de aseo y mantenimiento integral
+          para conjuntos residenciales y edificios.
+        </p>
+
+      </div>
+
+
+      <!-- CONTACTO -->
+
+      <div class="footer-col">
+
+        <h4>Contacto Directo</h4>
+
+        <ul>
+
+          <!-- COMPLETA ESTOS DATOS -->
+
+          <li>
+            <i class="fa-solid fa-phone"></i>
+            <a class="contact-link" href="tel:">
+              <!-- TELÉFONO -->
+            </a>
+          </li>
+
+          <li>
+            <i class="fa-solid fa-envelope"></i>
+            <a class="contact-link" href="mailto:">
+              <!-- CORREO -->
+            </a>
+          </li>
+
+          <li>
+            <i class="fa-solid fa-business-time"></i>
+            Horario de atención: __________________
+          </li>
+
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            Dirección: __________________
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- RESPONSABLE LEGAL -->
+
+      <div class="footer-col">
+
+        <h4>Responsable Legal</h4>
+
+        <ul>
+
+          <li>
+            <i class="fa-solid fa-user-tie"></i>
+            <strong>Anunciante:</strong>
+          </li>
+
+          <li>
+            <i class="fa-solid fa-id-card"></i>
+            <strong>C.C.:</strong>
+          </li>
+
+          <li>
+            <i class="fa-solid fa-phone-volume"></i>
+            <strong>Contacto:</strong>
+          </li>
+
+          <li>
+            <i class="fa-solid fa-at"></i>
+            <strong>Correo:</strong>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- ENLACES LEGALES -->
+
+      <div class="footer-col">
+
+        <h4>Enlaces Legales</h4>
+
+        <div class="legal-links">
+
+          <a href="politica-privacidad.html"
+             target="_blank"
+             rel="noopener noreferrer">
+            Política de Privacidad
+          </a>
+
+          <a href="terminos-condiciones.html"
+             target="_blank"
+             rel="noopener noreferrer">
+            Términos y Condiciones
+          </a>
+
+          <a href="politica-cookies.html"
+             target="_blank"
+             rel="noopener noreferrer">
+            Política de Cookies
+          </a>
+
+          <a href="aviso-legal.html"
+             target="_blank"
+             rel="noopener noreferrer">
+            Aviso Legal
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- INFORMACIÓN LEGAL EN BLANCO -->
+
+    <div class="footer-bottom">
+
+      <p>
+        &copy; 2026 Casa Conjuntos Clean. Todos los derechos reservados.
+      </p>
+
+      <div class="footer-bottom-meta">
+
+        <span>Anunciante: </span>
+
+        <span>C.C.: </span>
+
+        <span>Correo: </span>
+
+        <span>Teléfono: </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       BOTÓN FLOTANTE
+  ========================= -->
+
+  <!-- COLOCA AQUÍ TU ENLACE DE WHATSAPP -->
+
+  <a href="#"
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     title="Contacto por WhatsApp">
+
+    <i class="fa-brands fa-whatsapp"></i>
+
+  </a>
 
 </body>
 </html>
